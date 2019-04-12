@@ -1,0 +1,12 @@
+<ul>
+{% for b in book_list %}
+  {{ b }} <br>
+{% endfor %}
+</ul>
+
+{% if not book_list %}
+Sorry, there are no books by this author.<br><br>
+{% endif %}
+
+<a href="{{ url_for('search_form')}}">Search another author</a><br>
+<a href="{{ url_for('index')}}">Return to home page</a>

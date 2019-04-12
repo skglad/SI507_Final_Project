@@ -1,0 +1,12 @@
+<ul>
+{% for sn in title_list %}
+  {{ sn }} <br>
+{% endfor %}
+</ul>
+
+{% if not title_list %}
+Sorry, there are no books with this tag.<br><br>
+{% endif %}
+
+<a href="{{ url_for('search_form')}}">Search another term</a><br>
+<a href="{{ url_for('index')}}">Return to home page</a>
