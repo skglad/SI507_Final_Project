@@ -80,12 +80,20 @@ def new_book_input(row):
 
 # App routes (minimum of 3)
 @app.route('/')
+def welcome():
+    return render_template('background.html')
+    #return " <h2>There are {} books in this database.<br> There are {} authors in this database.".format(num_books, num_author)
+    #return "<script>  var flag = true;  window.setInterval(function () {    var color = flag ? 'ccf5ff' : 'b3f0ff';    document.getElementsByTagName('body')[0].style.backgroundColor = color;    flag = !flag;  }, 1000)</script> <h1>Welcome to the Book Finder App!</h1>"
+    #add a render_template here to include the links to the different pages of the website, also add these to the search pages
+
+@app.route('/information')
 def index():
     books = Book.query.all()
     num_books = len(books)
     authors = Author.query.all()
     num_author = len(authors)
-    return "<h2>There are {} books in this database.<br> There are {} authors in this database.".format(num_books, num_author)
+    #return render_template('information.html')
+    return " <h2>There are {} books in this database.<br> There are {} authors in this database.</h2>".format(num_books, num_author)
 
 # @app.route('/search/<search>')
 # def search_term(search):
@@ -113,15 +121,15 @@ def author_form():
 
 @app.route('/author', methods=['POST'])
 def author_form_post():
-    text = request.form['text']
+    author = request.form['text']
     #author = text.title()
     #book_list = Author.query.filter_by(name=author).first().books
     try:
-        book_list = Author.query.filter(Author.name.ilike(text)).first().books
+        book_list = Author.query.filter(Author.name.ilike(author)).first().books
         return render_template("author-list.html", book_list = book_list)
     except AttributeError:
-        return "Sorry, no titles for {} exist. Please check your spelling and try again.".format(text)
-        #return "{}".format(book_list)
+        #return "Sorry, no titles by {} exist. Please check your spelling and try again.".format(text)
+        return render_template('author-list.html')
 
 
 
@@ -133,8 +141,8 @@ def search_form():
 @app.route('/search', methods=['POST'])
 def search_form_post():
     search = request.form['text']
-    #search = str(text)
     title_list = Book.query.filter(Book.title.contains(search)).all()
+    #title_list = Book.query.filter(Book.title.op('regexp')(r'\b{}\b'.format(search))).all()
     #return "{}".format(book_list)
     return render_template ('search-return.html', title_list = title_list)
 
