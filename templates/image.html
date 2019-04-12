@@ -2,6 +2,11 @@
     <img  src="{{n.image_link}}">
         {% endfor %}
 
+{% if not book_image %}
+        Sorry, there is no book cover for this title. Please check your spelling and try again. <br><br>
+        {% endif %}
+
+
 <br>
 <br>
 <a href="{{ url_for('cover_form')}}">Search for another bookcover</a><br>
@@ -9,4 +14,4 @@
 <br>
 <a href="{{ url_for('author_form')}}">Search for books by author</a><br>
 <a href="{{ url_for('search_form')}}">Search for books by search term</a><br>
-<a href="{{ url_for('index')}}">Return to home page</a><br>
+<a href="{{ url_for('welcome')}}">Return to home page</a><br>

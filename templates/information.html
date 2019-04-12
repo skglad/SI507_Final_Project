@@ -1,0 +1,8 @@
+<script>  var flag = true;  window.setInterval(function () {    var color = flag ? 'ccf5ff' : 'b3f0ff';    document.getElementsByTagName('body')[0].style.backgroundColor = color;    flag = !flag;  }, 1000)</script>
+
+<h1>Welcome to the Book Finder App!</h1>
+
+<a href="{{ url_for('author_form')}}">Search for books by author</a><br>
+<a href="{{ url_for('cover_form')}}">Search for bookcover by title</a><br>
+<a href="{{ url_for('search_form')}}">Search for bookcover by search term</a><br>
+<a href="{{ url_for('index')}}">Database information</a>
