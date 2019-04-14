@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, session, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_assets import Bundle, Environment
 import pandas as pd
 import re
 
