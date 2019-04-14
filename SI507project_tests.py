@@ -21,13 +21,12 @@ class FinalProjectTests(unittest.TestCase):
 
 
 
+	def test_foreign_key_books(self):
+		res = self.cur.execute("select * from books INNER JOIN authors ON books.author_id = authors.id")
+		data = res.fetchall()
+		self.assertTrue(data, "Testing that result of selecting based on relationship between books and authors does work")
+		self.assertTrue(len(data) in [1136, 1996], "Testing that there is in fact the amount of data entered that there should have been -- based on this query of everything in both tables.{}".format(len(data)))
 
-	# def test_foreign_key_chocolate(self):
-	# 	res = self.cur.execute("select * from chocolatebars INNER JOIN countries ON chocolatebars.companyCountry = countries.id")
-	# 	data = res.fetchall()
-	# 	self.assertTrue(data, "Testing that result of selecting based on relationship between chocolatebars and countries does work")
-	# 	self.assertTrue(len(data) in [1795, 1796], "Testing that there is in fact the amount of data entered that there should have been -- based on this query of everything in both tables.{}".format(len(data)))
-    #
 
 	def tearDown(self):
 		self.conn.commit()
