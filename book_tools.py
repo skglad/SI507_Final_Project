@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, session, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_assets import Bundle, Environment
 import pandas as pd
 import re
 
@@ -82,6 +83,7 @@ def new_book_input(row):
 @app.route('/')
 def welcome():
     return render_template('background.html')
+    #return render_template('test.html')
     #return " <h2>There are {} books in this database.<br> There are {} authors in this database.".format(num_books, num_author)
     #return "<script>  var flag = true;  window.setInterval(function () {    var color = flag ? 'ccf5ff' : 'b3f0ff';    document.getElementsByTagName('body')[0].style.backgroundColor = color;    flag = !flag;  }, 1000)</script> <h1>Welcome to the Book Finder App!</h1>"
     #add a render_template here to include the links to the different pages of the website, also add these to the search pages
@@ -92,8 +94,8 @@ def index():
     num_books = len(books)
     authors = Author.query.all()
     num_author = len(authors)
-    #return render_template('information.html')
-    return " <h2>There are {} books in this database.<br> There are {} authors in this database.</h2>".format(num_books, num_author)
+    return render_template('information.html')
+    #return " <h2>There are {} books in this database.<br> There are {} authors in this database.</h2>".format(num_books, num_author)
 
 # @app.route('/search/<search>')
 # def search_term(search):
