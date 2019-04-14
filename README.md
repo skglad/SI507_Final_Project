@@ -25,7 +25,7 @@ My project takes a .csv file from a dataset of 10,000 books from Goodreads (foun
 4. The user can navigate to the bookcover route that will populate a form that allows the user to input the title of a book and the app will return an image of the book's cover.
 5. The user can always navigate to the information route which will give the user an overview of the functionality of the app.
 6. It is important to note that correct spelling of the author and title are very important. The queries are not case sensitive, but correct spelling is necessary.
-7. Please look in "screenshot" directory for views of what the app should look like when it is run. 
+7. Please look in "screenshot" directory for views of what the app should look like when it is run.
 
 ## Routes in this application
 - `/` -> this is the home page of the application with a welcome message and links to the other routes
@@ -93,7 +93,7 @@ My project takes a .csv file from a dataset of 10,000 books from Goodreads (foun
 - [X] Templating in your Flask application
 - [X] Inclusion of JavaScript files in the application
 - [X] Links in the views of Flask application page/s
-- [X] Relevant use of `itertools` and/or `collections`
+- [X] Relevant use of `itertools` and/or `collections` (generator used in pandas to iterate through dataset)
 - [ ] Sourcing of data using web scraping
 - [ ] Sourcing of data using web REST API requests
 - [X] Sourcing of data using user input and/or a downloaded .csv or .json dataset
