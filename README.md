@@ -8,7 +8,9 @@ by Sara Gladchun
 
 ## Project Description
 
-My project takes a .csv file from a dataset of 10,000 books from Goodreads (found on kaggle.com) and from that data creates a database with two tables: books and authors. For the purposes of this program, I have limited the insertion of data into the database to the first 2,000 books from the dataset. The program then creates a flask app that allows a user to search through the database. The user can query books by author in order to get a list of books written by the author. The user can also query books by a search term, which will return a list of books that have said search term in the title. The user can also query the database by the title of the book and the app will return an image of the book cover.
+My project takes a books.csv file which is a dataset of 10,000 books from Goodreads (found on kaggle.com). In cleaning_books.py, the dataset is cleaned and unnecesary columns are dropped from the dataset and put into a new .csv called clean_books.csv. The clean_books.csv contains 10,000 books as well. My program takes the clean_books.csv and creates a database with two tables: **books and authors**. <br>
+<br>
+For the purposes of this program, I have limited the insertion of data into the database to the first 2,000 books from the dataset. When the program is run, it creates a flask app that allows a user to search through the database. Before the first request, the data is inserted into the database tables. The user can then query books by author in order to get a list of books written by the author. The user can also query books by a search term, which will return a list of books that have said search term in the title. The user can also query the database by the title of the book and the app will return an image of the book cover.
 
 ## How to run
 
