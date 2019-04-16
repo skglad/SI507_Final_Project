@@ -21,7 +21,7 @@ db = SQLAlchemy(app)
 session = db.session
 
 #########
-######### Everything above this line is important/useful setup, not problem-solving.
+######### Everything above this line is set-up.
 #########
 
 
@@ -37,7 +37,6 @@ class Book(db.Model):
     year_published = db.Column(db.Integer)
     #author = db.Column(db.relationship('Author',backref='books'))
 
-
     def __repr__(self):
         return "{} by {}".format(self.title, self.author.name)
 
@@ -47,8 +46,6 @@ class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     books = db.relationship("Book", backref = "author")
-
-
 
     def __repr__(self):
         return "{}".format(self.title)
@@ -66,6 +63,7 @@ def get_or_create_author(author_name):
         session.commit()
         return author
 
+#function to create a new book (does not allow duplicate titles)
 def new_book_input(row):
     if Book.query.filter_by(title= row['original_title']).first():
         return "</h2>Sorry that book is already in the database.</h2>"
@@ -76,7 +74,7 @@ def new_book_input(row):
         session.commit()
         return "<h2>New book added!"
 
-###inserting data###
+###routes for flask application
 
 # App routes (minimum of 3)
 @app.route('/')
@@ -84,9 +82,8 @@ def welcome():
     return render_template('background.html')
     #return render_template('test.html')
     #return " <h2>There are {} books in this database.<br> There are {} authors in this database.".format(num_books, num_author)
-    #return "<script>  var flag = true;  window.setInterval(function () {    var color = flag ? 'ccf5ff' : 'b3f0ff';    document.getElementsByTagName('body')[0].style.backgroundColor = color;    flag = !flag;  }, 1000)</script> <h1>Welcome to the Book Finder App!</h1>"
-    #add a render_template here to include the links to the different pages of the website, also add these to the search pages
 
+#route to get information about the database
 @app.route('/information')
 def index():
     books = Book.query.all()
@@ -96,24 +93,6 @@ def index():
     return render_template('information.html')
     #return " <h2>There are {} books in this database.<br> There are {} authors in this database.</h2>".format(num_books, num_author)
 
-# @app.route('/search/<search>')
-# def search_term(search):
-#     #title_list = Book.query.filter_by(title=title).all()
-#     title_list = Book.query.filter(Book.title.contains(search)).all()
-#     return render_template ('test.html', title_list = title_list)
-#
-#
-# @app.route('/author/<author>')
-# def search_titles(author):
-#     #title_list = Book.query.filter_by(title=title).all()
-#     book_list = Author.query.filter_by(name=author).first().books
-#     return "{}".format(book_list) #here needs to render template
-#
-# @app.route('/bookcover/<title>')
-# def search_bookcover(title):
-#     book_image = Book.query.filter_by(title = title).all()
-#     return render_template ('image.html', book_image = book_image)
-#     #return "{}".format(book_image)
 
 #route with form to return list of books by a specific author
 @app.route('/author')
@@ -131,7 +110,6 @@ def author_form_post():
     except AttributeError:
         #return "Sorry, no titles by {} exist. Please check your spelling and try again.".format(text)
         return render_template('author-list.html')
-
 
 
 #route with form to return book titles with a specific search term
@@ -162,12 +140,11 @@ def cover_form_post():
     #return render_template ('test.html', title_list = title_list)
 
 
-
 # ###insert data###
 @app.before_first_request
 def insert_data():
     books_df = pd.read_csv('books_clean.csv') #pandas module
-    books_df = books_df.iloc[:1000]
+    books_df = books_df.iloc[:2000]
     for index, row in books_df.iterrows(): #use of generator
         new_book_input(row)
 
