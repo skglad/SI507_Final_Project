@@ -8,7 +8,7 @@ by Sara Gladchun
 
 ## Project Description
 
-My project takes a .csv file from a dataset of 10,000 books from Goodreads (found on kaggle.com) and from that data creates a database with two tables: books and authors. Then it creates a flask app that allows a user to search through the database. The user can query books by author in order to get a list of books written by the author. The user can also query books by a search term, which will return a list of books that have said search term in the title. The user can also query the database by the title of the book and the app will return an image of the book cover.
+My project takes a .csv file from a dataset of 10,000 books from Goodreads (found on kaggle.com) and from that data creates a database with two tables: books and authors. For the purposes of this program, I have limited the insertion of data into the database to the first 2,000 books from the dataset. The program then creates a flask app that allows a user to search through the database. The user can query books by author in order to get a list of books written by the author. The user can also query books by a search term, which will return a list of books that have said search term in the title. The user can also query the database by the title of the book and the app will return an image of the book cover.
 
 ## How to run
 
@@ -19,7 +19,7 @@ My project takes a .csv file from a dataset of 10,000 books from Goodreads (foun
 
 ## How to use
 
-1. When the user navigates to localhost5000: They will be taken to the homepage with links to the rest of the routes.
+1. When the user navigates to localhost:5000 They will be taken to the homepage with links to the rest of the routes.
 2. The user can navigate to the author route, which will populate a form where the user can input information and the app will return a list of books written by that author that are in the Database
 3. The user can navigate to the search route, which will populate a form where the user can input a search term (ex: "car" or "harry" or "magic") and the app will return a list of books with titles that contain that search term.
 4. The user can navigate to the bookcover route that will populate a form that allows the user to input the title of a book and the app will return an image of the book's cover.
@@ -36,8 +36,8 @@ My project takes a .csv file from a dataset of 10,000 books from Goodreads (foun
 
 ## How to run tests
 1. First make sure the file SI507project_tests.py is in the same directory as the rest of the files
-2. Run the app program and navigate to localhost5000 so that the database is created
-3. Run the test file: SI507project_tests.py
+2. Run the app program and navigate to localhost:5000 so that the database is created
+3. Run the test file: SI507project_tests.py in your terminal
 
 ## In this repository:
 - templates
@@ -59,6 +59,8 @@ My project takes a .csv file from a dataset of 10,000 books from Goodreads (foun
   - Results_search_term.png
 - book_tools.py
 - books_clean.csv
+- cleaning_books.py - code used to clean original dataset
+- books.csv - original dataset downloaded from kaggle (contains 10,000 books from Goodreads)
 - books.db_project_final
 - requirements.txt
 - SI507 Final Project Database Diagram.pdf
