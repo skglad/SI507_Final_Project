@@ -1,4 +1,4 @@
-#SI507 Final Project: Book Finder App
+# SI507 Final Project: Book Finder App
 
 by Sara Gladchun
 
