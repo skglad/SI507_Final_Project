@@ -15,7 +15,7 @@ My program takes the clean_books.csv and creates a database with two tables: **b
 ## How to run
 
 1. First, you should install all requirements with `pip install -r requirements.txt`
-2. Download files needed to run the program (templates folder, static folder, books_clean.csv) and make sure they are in the same directory as the program file (book_tools.py)
+2. Download all files needed to run the program (templates folder, static folder, books_clean.csv) and make sure they are in the same directory as the program file (book_tools.py)
 2. Then, you should run 'python3 book_tools.py' in your terminal
 3. Once you run the program in the terminal, you can navigate to localhost5000: and use the app
 
