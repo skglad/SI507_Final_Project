@@ -22,9 +22,9 @@ My program takes the clean_books.csv and creates a database with two tables: **b
 ## How to use
 
 1. When the user navigates to localhost:5000 They will be taken to the homepage with links to the rest of the routes.
-2. The user can navigate to the author route, which will populate a form where the user can input information and the app will return a list of books written by that author that are in the Database
-3. The user can navigate to the search route, which will populate a form where the user can input a search term (ex: "car" or "harry" or "magic") and the app will return a list of books with titles that contain that search term.
-4. The user can navigate to the bookcover route that will populate a form that allows the user to input the title of a book and the app will return an image of the book's cover.
+2. The user can navigate to the author route, which will populate a form where the user can input information and the app will return a list of books written by that author that are in the Database (for example, try "Harper Lee")
+3. The user can navigate to the search route, which will populate a form where the user can input a search term (for example, try "car" or "harry" or "magic") and the app will return a list of books with titles that contain that search term.
+4. The user can navigate to the book cover route that will populate a form that allows the user to input the title of a book and the app will return an image of the book's cover (for example, try "The Lovely Bones").
 5. The user can always navigate to the information route which will give the user an overview of the functionality of the app.
 6. It is important to note that correct spelling of the author and title are very important. The queries are not case sensitive, but correct spelling is necessary.
 7. Please look in "screenshot" directory for views of what the app should look like when it is run.
@@ -104,5 +104,5 @@ My program takes the clean_books.csv and creates a database with two tables: **b
 - [ ] Caching of data you continually retrieve from the internet in some way
 
 ### Submission
-- [ ] I included a link to my GitHub repository with the correct permissions on Canvas! (Did you though? Did you actually? Are you sure you didn't forget?)
-- [ ] I included a summary of my project and how I thought it went **in my Canvas submission**!
+- [X] I included a link to my GitHub repository with the correct permissions on Canvas! (Did you though? Did you actually? Are you sure you didn't forget?)
+- [X] I included a summary of my project and how I thought it went **in my Canvas submission**!
